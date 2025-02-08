@@ -84,21 +84,20 @@ By averaging the depth of the area detected with the object detection model, the
 
 You can use images from the [/Dataset_Occluded_Pedestrian/](Dataset_Occluded_Pedestrian) folder with a name starts with **A** or **B** to test the algorithm
 
-The processing algorithm can be summarize as 
-1. Use any pretrained object detection model.
+The processing algorithm can be summarized as 
+1. Use any pre-trained object detection model.
 2. Filter the output to pedestrians only.
 3. Estimate the depth of the pedestrian.
 4. report the bounding box and the average depth.
 
-
-To implemnent this, you may follow the following step.
+The task is to implement this algorithm as a Dataflow Job. To do this, you may follow the following steps.
 1. Implement the algorithm locally on your machine.
-2. Generate a Docker image for the Dataflow worker that has all the needed libaray installed.
-3. Write the oython script that create Dataflow pipeline that
-    1. Reads from a topic
-    2. Detect the pedistrain
-    3. Estimate the depth
-    4. Publish the results (at least the bounding boxes and depth) to another topic
+2. Generate a Docker image for the Dataflow worker with all the needed libraries installed.
+3. Write the Python script that creates a Dataflow pipeline that
+    1. Reads from a topic.
+    2. Detect the pedestrian.
+    3. Estimate the depth.
+    4. Publish the results (at least the bounding boxes and depth) to another topic.
 4. Test the pipeline locally first at the GCP console.
-5. Run it as a stream process using the Dataflow.
+5. Run it as a stream process using the Docker image as a cloud-based Dataflow Job.
  
