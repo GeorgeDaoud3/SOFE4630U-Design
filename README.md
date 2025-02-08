@@ -100,4 +100,5 @@ The task is to implement this algorithm as a Dataflow Job. To do this, you may f
     4. Publish the results (at least the bounding boxes and depth) to another topic.
 4. Test the pipeline locally first at the GCP console.
 5. Run it as a stream process using the Docker image as a cloud-based Dataflow Job.
+6. Create a publisher and subscriber to test the job
  
