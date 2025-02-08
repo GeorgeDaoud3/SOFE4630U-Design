@@ -74,7 +74,7 @@ The following figure illustrates how this information can be visualized. The fig
 
 ![](/images/yolo.jpg)
 
-Then, we need to estimate the distance between the camera and the detected pedestrian. This can be done with many tools and methods. One of them is using [https://github.com/apple/ml-depth-pro] (Depth Pro). This is only a suggestion. You can use any other tool. Depth Pro uses a trained ML model to generate the depth image of the standard RGB image. The depth image is a numerical image in which the value of each pixel is the distance from the camera. For visualization purposes, the depth image is shown in the following figure, with the more blueish color meaning less depth while the more yellowish color means far objects.
+Then, we need to estimate the distance between the camera and the detected pedestrian. This can be done with many tools and methods. One of them is using <a href='https://github.com/apple/ml-depth-pro'>Depth Pro</a>. This is only a suggestion. You can use any other tool. Depth Pro uses a trained ML model to generate the depth image of the standard RGB image. The depth image is a numerical image in which the value of each pixel is the distance from the camera. For visualization purposes, the depth image is shown in the following figure, with the more blueish color meaning less depth while the more yellowish color means far objects.
 
 ![](/images/depth.jpg)
 
