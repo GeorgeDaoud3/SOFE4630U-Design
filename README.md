@@ -82,11 +82,14 @@ By averaging the depth of the area detected with the object detection model, the
 
 ![](/images/ped_depth.jpg)
 
+You can use images from the (Dataset_Occluded_Pedestrian)[/Dataset_Occluded_Pedestrian/] folder with a name starts with **A** or **B** to test the algorithm
+
 The processing algorithm can be summarize as 
 1. Use any pretrained object detection model.
 2. Filter the output to pedestrians only.
 3. Estimate the depth of the pedestrian.
 4. report the bounding box and the average depth.
+
 
 To implemnent this, you may follow the following step.
 1. Implement the algorithm locally on your machine.
