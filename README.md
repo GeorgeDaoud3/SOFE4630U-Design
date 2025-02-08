@@ -82,7 +82,7 @@ By averaging the depth of the area detected with the object detection model, the
 
 ![](/images/ped_depth.jpg)
 
-You can use images from the [/Dataset_Occluded_Pedestrian/](Dataset_Occluded_Pedestrian) folder with a name starts with **A** or **B** to test the algorithm
+You can use images from the [/Dataset_Occluded_Pedestrian/](Dataset_Occluded_Pedestrian) folder with a name starts with **A** or **C** to test the algorithm
 
 The processing algorithm can be summarized as 
 1. Use any pre-trained object detection model.
