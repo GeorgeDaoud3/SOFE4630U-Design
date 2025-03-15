@@ -134,9 +134,7 @@ In this milestone you will build a solution of the problem based on a microservi
 
 1. Pedestrain detecting:
 
-<span style="color:blue">some *This is Blue italic.* text</span>
-   
-$text$
+$${\color{red}Welcome \space \color{lightblue}To \space \color{lightgreen}Github}$$
 
 |   | Details |
 | ------- | ------- |
