@@ -139,6 +139,6 @@ ggg **$${\color{red}\textbf{Welcome} \space \color{lightblue}To \space \color{li
 |   | Details |
 | ------- | ------- |
 | Input fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluded_Image_View**, **Occluding_Image_View**  |
-| output fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluded_Image_View**, **Occluding_Image_View** ,<text style="color: red">Pedestrains</text> |   
+| output fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluded_Image_View**, **Occluding_Image_View** , $${\color{green}\textbf{Pedestrains}}$$ |   
 | function  | run **Yolo v11** on the **Occluded_Image_View** image and produce a list of boxes that surrounding pedestrains  |   
 3. 
