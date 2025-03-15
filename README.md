@@ -138,7 +138,7 @@ In this milestone, you will build a solution to the problem based on a microserv
 | ------- | ------- |
 | Input fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluded_Image_View**, **Occluding_Image_View**  |
 | Output fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluded_Image_View**, **Occluding_Image_View**, $${\large \color{green}\textbf{Pedestrians}}$$ |   
-| function  | run **Yolo v11** on the **Occluded_Image_View** image and produce a list of boxes that surrounding pedestrians  |   
+| function  | run **Yolo v11** on the **Occluded_Image_View** image and produce a list of boxes that surround pedestrians  |   
 | path to the code  | [Yolo pedestrian](/docker/Yolo_pedestrian)  | 
 
 2. Pedestrian depth
@@ -147,5 +147,5 @@ In this milestone, you will build a solution to the problem based on a microserv
 | ------- | ------- |
 | Input fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, $${\large \color{red}\textbf{Occluded} \textunderscore \textbf{Image} \textunderscore \textbf{View}}$$, **Occluding_Image_View**, **Pedestrians**  |
 | Output fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluding_Image_View**, **Pedestrians**, $${\large \color{green}\textbf{Pedestrians} \textunderscore \textbf{depth}}$$ |   
-| function  | run **depth pro** on the **Occluded_Image_View** image, estimate the depth of the pedestrains, and filter out any pedestrain more than ten meters away. Also, as the **Occluded_Image_View** is no longer needed, it will be excluded from the output. Note that the **depth pro** algorithm takes less than 3 seconds on a machine with a GPU, but it may take up to 5 without GPU. |   
+| function  | run **depth pro** on the **Occluded_Image_View** image, estimate the depth of the pedestrians, and filter out any pedestrian more than ten meters away. Also, as the **Occluded_Image_View** is no longer needed, it will be excluded from the output. Note that the **depth pro** algorithm takes less than 3 seconds on a machine with a GPU but may take up to 5 without a GPU. |   
 | path to the code  | [depth_cam1](/docker/depth_cam1)  | 
