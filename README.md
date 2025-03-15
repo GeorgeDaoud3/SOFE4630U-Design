@@ -174,9 +174,9 @@ In this milestone, you will build a solution to the problem based on a microserv
 
   |   | Details |
 | ------- | ------- |
-| Input fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, , $${\large \color{green}\textbf{Occluding} \underscore \textbf{Image} \underscore \textbf{View}}$$, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, **vehicles**  |
-| Output fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, **vehicles**, $${\large \color{green}\textbf{vehicles} \underscore \textbf{depth}}$$ |   
-| function  | similar to **Pedestrians depth** except it will estimate the depth of vehicles from the **Occluded_Image_View** image using a different focal length (different camera). Also, the **Occluded_Image_View** image will be excluded from the output. |
+| Input fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, $${\large \color{red} \textbf{Occluding} \textunderscore \textbf{Image} \textunderscore \textbf{View}}$$, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, **vehicles**  |
+| Output fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, **vehicles**, $${\large \color{green}\textbf{vehicles} \textunderscore \textbf{depth}}$$ |   
+| function  | similar to **Pedestrians depth** except it will estimate the depth of vehicles from the **Occluded_Image_View** image using a different focal length (different camera). Only vehicles that at most 20 meters close will be kept. Also, the **Occluded_Image_View** image will be excluded from the output. |
 | [depth_cam1](/docker/depth_cam1)  | 
 
 3. Longitudal and lateral distance for Pedestrians
