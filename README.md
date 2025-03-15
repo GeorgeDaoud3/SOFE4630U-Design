@@ -150,7 +150,7 @@ In this milestone, you will build a solution to the problem based on a microserv
 | function  | runs **depth pro** on the **Occluded_Image_View** image, estimates the depth of the pedestrians, and filters out any pedestrian more than ten meters away. Also, as the **Occluded_Image_View** is no longer needed, it will be excluded from the output. Note that the **depth pro** algorithm takes less than 3 seconds on a machine with a GPU but may take up to 5 without a GPU. |   
 | path to the code  | [depth_cam1](/docker/depth_cam1)  | 
 
-2. Longitudal and lateral distance for Pedestrians
+3. Longitudal and lateral distance for Pedestrians
 
   |   | Details |
 | ------- | ------- |
