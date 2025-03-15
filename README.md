@@ -23,23 +23,23 @@ The problem is to detect pedestrians occluded by other vehicles. As shown in the
 The dataset contains a file named **labels.csv**. It includes the following information:
 * **Timestamp**: The scene time in nanoseconds.
 * **Car1_Location_X** and	**Car1_Location_Y**: the locations of the center of the **other vehicle** that is occluding the pedestrian in real-world coordinates.
-* **Car1_Length**,	**Car1_Width**,	and **Car1_Height**: the dimensions of the **other vehicle** that occluding the pedestrian in meters.
+* **Car1_Length**,	**Car1_Width**,	and **Car1_Height**: the dimensions of the **other vehicle** in meters.
 * **Car2_Location_X** and	**Car2_Location_Y**: the locations of the center of the **ego vehicle** in real-world coordinates.
 * **Car2_Length**,	**Car2_Width**,	and **Car2_Height**: the dimensions of the **ego vehicle** in meters.
 * **pedestrian_Location_X** and	**pedestrian_Location_X**: the locations of the center pedestrian in real-world coordinates.
 * **pedestrian_Length**,	**pedestrian_Width**,	and **pedestrian_Height**: the dimensions of the pedestrian in meters.
-* **cam1_pedestrian_x1**,	**cam1_pedestrian_y1**,	**cam1_pedestrian_x2**, and	**cam1_pedestrian_y2**: the bounding box coordinates that surrounding the pedestrian in the image captures by Camera1. This camera is mounted on the **other vehicle**.
-* **cam2_car_x1**,	**cam2_car_y1**,	**cam2_car_x2**, and	**cam2_car_y2**: the bounding box coordinates that surrounding the nearest vehicle in the image captures by Camera. This camera is mounted on the **other vehicle**.
-* **cam3_pedestrian_x1**,	**cam3_pedestrian_y1**,	**cam3_pedestrian_x2**, and	**cam3_pedestrian_y2**: the bounding box coordinates that should surround the pedestrian in the image captures by the camera mounted on the **other vehicle** if there was no occlusion. This information may be needed for validation.
-* **Occluded_Image_View**: This images captured by the camera that is mounted on the **other vehicle**. It shows the occluded view by the **other vehicle**.
+* **cam1_pedestrian_x1**,	**cam1_pedestrian_y1**,	**cam1_pedestrian_x2**, and	**cam1_pedestrian_y2**: the bounding box coordinates that surrounding the pedestrian in the image captured by Camera1. This camera is mounted on the **other vehicle**.
+* **cam2_car_x1**,	**cam2_car_y1**,	**cam2_car_x2**, and	**cam2_car_y2**: the coordinates of the bounding box surrounding the nearest vehicle in the image captured by Camera2. This camera is mounted on the **other vehicle**.
+* **cam3_pedestrian_x1**,	**cam3_pedestrian_y1**,	**cam3_pedestrian_x2**, and	**cam3_pedestrian_y2**: the coordinates of the bounding box that should surround the pedestrian in the image captured by the camera mounted on the **other vehicle** if there was no occlusion. This information may be needed for validation.
+* **Occluded_Image_View**: images captured by the camera mounted on the **other vehicle**. It shows the occluded view by the **other vehicle**.
 * **Occluded_Image_Lidar**: (**optional**) The Lidar row data captured by the Lidar mounted on the **other vehicle**.
-* **Occluding_Image_View**: This images captured by the camera that is mounted on the **ego vehicle**. It shows the occluding view by the **other vehicle**.
+* **Occluding_Image_View**: images captured by the camera mounted on the **ego vehicle**. It shows the occluding view by the **other vehicle**.
 * **Occluding_Image_Lidar**: (**optional**) The Lidar row data captured by the Lidar mounted on the **ego vehicle**.
-* **Ground_Truth_View**: This images that should be captured by the camera that is mounted on the **ego vehicle** if there were no occlusion by the **other vehicle**.
+* **Ground_Truth_View**: images that should be captured by the camera mounted on the **ego vehicle** if there is no occlusion by the **other vehicle**.
 
-All images that was mentioned in the **labels.csv** table can be found in the **Dataset_Occluded_Pedestrian** folder.
+All images mentioned in the **labels.csv** table can be found in the **Dataset_Occluded_Pedestrian** folder.
 
-All Lidar data that was mentioned in the **labels.csv** table can be found in the **Lidar** folder (**optional**). Note that the lidar data can be visulaized using this [online tool](https://imagetostl.com/view-ply-online). It can be processed with many open-source pretrained neural networks as [PointRCNN](https://github.com/sshaoshuai/PointRCNN).
+All Lidar data mentioned in the **labels.csv** table can be found in the **Lidar** folder (**optional**). Note that the lidar data can be visulaized using this [online tool](https://imagetostl.com/view-ply-online). It can be processed with many open-source pretrained neural networks as [PointRCNN](https://github.com/sshaoshuai/PointRCNN).
 
 The images represented the aerial View of the scenes can be found the **AerialView** folder (**optional**).
 
