@@ -12,7 +12,7 @@ The efficiency of those tasks has been improved significantly in normal situatio
 The problem is to detect pedestrians occluded by other vehicles. As shown in the following figure,
   * The **red vehicle** is the vehicle that executes the software or request the cloud service. Thus, it's called **ego vehicle**.
   * The **regions 1 and 2** are the field view of the camera of the ego vehicle.
-  * The **grey vehicle** is the vehicle occluding a pedestrian by blocking the a part of the field view of the ego vehicle.
+  * The **grey vehicle** is the vehicle occluding a pedestrian by blocking the a part of the field view of the ego vehicle. We will refer to it as the **other vehicle**.
   * **Region 2** is the part of the field view of the ego vehicle blocked by the other vehicle.
   * The **pedestrian** get occluded from the ego vehicle by the other vehicle.
 
@@ -22,20 +22,20 @@ The problem is to detect pedestrians occluded by other vehicles. As shown in the
 
 The dataset contains a file named **labels.csv**. It includes the following information:
 * **Timestamp**: The scene time in nanoseconds.
-* **Car1_Location_X** and	**Car1_Location_Y**: the locations of the center of the **grey vehicle** that is occluding the pedestrian in real-world coordinates.
-* **Car1_Length**,	**Car1_Width**,	and **Car1_Height**: the dimensions of the **grey vehicle** that occluding the pedestrian in meters.
+* **Car1_Location_X** and	**Car1_Location_Y**: the locations of the center of the **other vehicle** that is occluding the pedestrian in real-world coordinates.
+* **Car1_Length**,	**Car1_Width**,	and **Car1_Height**: the dimensions of the **other vehicle** that occluding the pedestrian in meters.
 * **Car2_Location_X** and	**Car2_Location_Y**: the locations of the center of the **ego vehicle** in real-world coordinates.
 * **Car2_Length**,	**Car2_Width**,	and **Car2_Height**: the dimensions of the **ego vehicle** in meters.
 * **pedestrian_Location_X** and	**pedestrian_Location_X**: the locations of the center pedestrian in real-world coordinates.
 * **pedestrian_Length**,	**pedestrian_Width**,	and **pedestrian_Height**: the dimensions of the pedestrian in meters.
-* **cam1_pedestrian_x1**,	**cam1_pedestrian_y1**,	**cam1_pedestrian_x2**, and	**cam1_pedestrian_y2**: the bounding box coordinates that surrounding the pedistrain in the image captures by Camera1. This camera is mounted on the **grey vehicle**.
-* **cam2_car_x1**,	**cam2_car_y1**,	**cam2_car_x2**, and	**cam2_car_y2**: the bounding box coordinates that surrounding the nearest vehicle in the image captures by Camera. This camera is mounted on the **ego vehicle**.
-* **cam3_pedestrian_x1**,	**cam3_pedestrian_y1**,	**cam3_pedestrian_x2**, and	**cam3_pedestrian_y2**: the bounding box coordinates that should surround the pedistrain in the image captures by the camera mounted on the **ego vehicle** if there was no occlusion. This information may be needed for validation.
-* **Occluded_Image_View**: This images captured by the camera that is mounted on the **grey vehicle**. It shows the occluded view by the **grey vehicle**.
-* **Occluded_Image_Lidar**: (**optional**) The Lidar row data captured by the Lidar mounted on the **grey vehicle**.
-* **Occluding_Image_View**: This images captured by the camera that is mounted on the **ego vehicle**. It shows the occluding view by the **grey vehicle**.
+* **cam1_pedestrian_x1**,	**cam1_pedestrian_y1**,	**cam1_pedestrian_x2**, and	**cam1_pedestrian_y2**: the bounding box coordinates that surrounding the pedestrian in the image captures by Camera1. This camera is mounted on the **other vehicle**.
+* **cam2_car_x1**,	**cam2_car_y1**,	**cam2_car_x2**, and	**cam2_car_y2**: the bounding box coordinates that surrounding the nearest vehicle in the image captures by Camera. This camera is mounted on the **other vehicle**.
+* **cam3_pedestrian_x1**,	**cam3_pedestrian_y1**,	**cam3_pedestrian_x2**, and	**cam3_pedestrian_y2**: the bounding box coordinates that should surround the pedestrian in the image captures by the camera mounted on the **other vehicle** if there was no occlusion. This information may be needed for validation.
+* **Occluded_Image_View**: This images captured by the camera that is mounted on the **other vehicle**. It shows the occluded view by the **other vehicle**.
+* **Occluded_Image_Lidar**: (**optional**) The Lidar row data captured by the Lidar mounted on the **other vehicle**.
+* **Occluding_Image_View**: This images captured by the camera that is mounted on the **ego vehicle**. It shows the occluding view by the **other vehicle**.
 * **Occluding_Image_Lidar**: (**optional**) The Lidar row data captured by the Lidar mounted on the **ego vehicle**.
-* **Ground_Truth_View**: This images that should be captured by the camera that is mounted on the **ego vehicle** if there were no occlusion by the **grey vehicle**.
+* **Ground_Truth_View**: This images that should be captured by the camera that is mounted on the **ego vehicle** if there were no occlusion by the **other vehicle**.
 
 All images that was mentioned in the **labels.csv** table can be found in the **Dataset_Occluded_Pedestrian** folder.
 
