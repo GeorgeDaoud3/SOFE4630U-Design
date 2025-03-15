@@ -198,3 +198,10 @@ In this milestone, you will build a solution to the problem based on a microserv
 | path to the code  | [AerialView](/docker/AerialView)  | 
 
 
+You needed to
+
+* Create a producer on your local machine that produce records from the **labels.csv** file to a topic.
+* Implement the seven microservices (Use the given code and add the communication part at the begining and end of the **main.py** files). The microservices should use a shared bus.
+* Deploy the microservices on Kubernetes.
+* Create a consumer on your local machine that consume and dispaly or save the results.
+* wait for enough time before processing the next record.
