@@ -193,7 +193,7 @@ In this milestone, you will build a solution to the problem based on a microserv
   |   | Details |
 | ------- | ------- |
 | Input fields  |**Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, **vehicles**, **vehicles_longitudinal**, **vehicles_lateral**  |
-| Output fields  | **Timestamp**, $${\large \color{green}\textbf{aerialView}$$ |   
+| Output fields  | **Timestamp**, $${\large \color{green}\textbf{aerialView}}$$ |   
 | function  | finally by combing the ego vehicle location with the relative distance between the other road agents, the aerial view image will be generated |   
 | path to the code  | [AerialView](/docker/AerialView)  | 
 
