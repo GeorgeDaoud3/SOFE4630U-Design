@@ -194,14 +194,14 @@ In this milestone, you will build a solution to the problem based on a microserv
 | ------- | ------- |
 | Input fields  |**Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, **vehicles**, **vehicles_longitudinal**, **vehicles_lateral**  |
 | Output fields  | **Timestamp**, $${\large \color{green}\textbf{aerialView}}$$ |   
-| function  | finally by combing the ego vehicle location with the relative distance between the other road agents, the aerial view image will be generated |   
+| function  | finally, by combining the ego vehicle location with the relative distance between the other road agents, the aerial view image will be generated |   
 | path to the code  | [AerialView](/docker/AerialView)  | 
 
 
 You needed to
 
-* Create a producer on your local machine that produce records from the **labels.csv** file to a topic.
-* Implement the seven microservices (Use the given code and add the communication part at the begining and end of the **main.py** files). The microservices should use a shared bus.
+* Create a producer on your local machine that produces records from the **labels.csv** file to a topic.
+* Implement the seven microservices (Use the given code and add the communication part at the beginning and end of the **main.py** files). The microservices should use a shared bus.
 * Deploy the microservices on Kubernetes.
-* Create a consumer on your local machine that consume and dispaly or save the results.
+* Create a consumer on your local machine that consumes and saves the results.
 * wait for enough time before processing the next record.
