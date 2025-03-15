@@ -132,7 +132,7 @@ The task is to implement this algorithm as a Dataflow Job. To do this, you may f
 ## Milestone 4
 In this milestone, you will build a solution to the problem based on a microservices approach that communicates over a shared bus. To simplify the problem, we will assume that only a single car is close to the ego vehicle and that only a single pedestrian is occluded by that car. All the code and docker files are given in the [docker](/docker) folder. Only the communication part is missing. Although some stages can be run in parallel, we will create a straight pipeline of microservices for simplicity. The microservices (stages) are in order:
 
-1. Pedestrians detecting:
+1. Pedestrians detection:
 
 |   | Details |
 | ------- | ------- |
@@ -161,13 +161,13 @@ In this milestone, you will build a solution to the problem based on a microserv
 
 ![image](https://github.com/user-attachments/assets/da0d7e8d-f636-4a4a-b50f-da409823218c)
 
-4. vehicles detecting:
+4. vehicles detection:
 
 |   | Details |
 | ------- | ------- |
 | Input fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluding_Image_View**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**  |
 | Output fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluding_Image_View**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, $${\large \color{green}\textbf{vehicles}}$$ |   
-| function  | similar to  **Pedestrians detecting** except it will search for vehicle in the **Occluded_Image_View** image  |   
+| function  | similar to  **Pedestrians detection** except it will search for vehicle in the **Occluded_Image_View** image  |   
 | path to the code  | [Yolo car](/docker/Yolo_car)  | 
 
 5. vehicles depth
