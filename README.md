@@ -157,7 +157,7 @@ In this milestone, you will build a solution to the problem based on a microserv
 | Input fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, $${\large \color{red}\textbf{Occluded} \textunderscore \textbf{Image} \textunderscore \textbf{View}}$$, **Occluding_Image_View**, **Pedestrians** ,$${\large \color{red}\textbf{Pedestrians} \textunderscore \textbf{depth}}$  |
 | Output fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluding_Image_View**, **Pedestrians**, $${\large \color{green}\textbf{Pedestrians} \textunderscore \textbf{longitudinal}}$$ ,$${\large \color{green}\textbf{Pedestrians} \textunderscore \textbf{lateral}}$$ |   
 | function  | runs a customized MLP to convert the depth into longitudinal and lateral distnaces. Refer to the following figure for more information about the longitudinal and lateral distances. The MLP takes as input the surrounding box and the depth of the pedestrian to generate the longitudinal and lateral distnaces. The MLP is already pre-trained. As the depth is no longer needed, **Pedestrians_depth** will be excluded from the ouput |   
-| path to the code  | [long lateral_cam1](/docker/long lateral_cam1)  | 
+| path to the code  | [long lateral_cam1](/docker/long_lateral_cam1)  | 
 
 ![image](https://github.com/user-attachments/assets/da0d7e8d-f636-4a4a-b50f-da409823218c)
 
