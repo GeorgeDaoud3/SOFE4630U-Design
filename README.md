@@ -134,7 +134,7 @@ In this milestone you will build a solution of the problem based on a microservi
 
 1. Pedestrain detecting:
 
-ggg $${\color{red}\text{Welcome} \space \color{lightblue}To \space \color{lightgreen}Github}$$
+ggg **$${\color{red}\text{Welcome} \space \color{lightblue}To \space \color{lightgreen}Github}$$**
 
 |   | Details |
 | ------- | ------- |
