@@ -2,6 +2,12 @@ import torch
 from torch import nn
 import numpy as np
 
+# inputs
+Pedestrians =np.array([[1010,  654, 1132, 1080]]);
+Pedestrians_depth=np.array([4.669038]);
+
+################################################################################################################
+
 class NeuralNetwork(nn.Module):
     def __init__(self):
         super().__init__()
@@ -22,13 +28,22 @@ class NeuralNetwork(nn.Module):
 	        logits = self.mlp(inputs)*self.y_max;
         return logits
 
-box=[1010,  654, 1132, 1080];
-depth=4.669038;
-
-x=np.array([*box,depth])
-
 mlp = NeuralNetwork()
 mlp.load_state_dict(torch.load("mlp_camA.pkl", weights_only=True))
 mlp.eval()
-outputs = np.array(mlp(torch.Tensor(x)))
-print(outputs)
+
+outputs=[]
+
+for i in range(Pedestrians.shape[0]):
+    box=Pedestrians[i,:]
+    depth=Pedestrians_depth[i]
+    x=np.array([*box,depth])
+    outputs.append(np.array(mlp(torch.Tensor(x))))
+
+outputs=np.array(outputs)
+################################################################################################################
+
+#outputs
+
+print("longitudinal : "+str(outputs[:,0]))
+print("lateral : "+str(outputs[:,1]))
