@@ -157,7 +157,7 @@ In this milestone, you will build a solution to the problem based on a microserv
 | Input fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluding_Image_View**, **Pedestrians** , $${\large \color{red}\textbf{Pedestrians} \textunderscore \textbf{depth}}$$  |
 | Output fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluding_Image_View**, **Pedestrians**, $${\large \color{green}\textbf{Pedestrians} \textunderscore \textbf{longitudinal}}$$, $${\large \color{green}\textbf{Pedestrians} \textunderscore \textbf{lateral}}$$ |   
 | function  | runs a customized MLP to convert the depth into longitudinal and lateral distnaces. Refer to the following figure for more information about the longitudinal and lateral distances. The MLP takes the surrounding box and the depth of the pedestrian as input to generate the longitudinal and lateral distances. The MLP is already pre-trained. As the depth is no longer needed, **Pedestrians_depth** will be excluded from the output |   
-| path to the code  | [long lateral_cam1](/docker/long_lateral_cam1)  | 
+| path to the code  | [long lateral_cam2](/docker/long_lateral_cam2)  | 
 
 ![image](https://github.com/user-attachments/assets/da0d7e8d-f636-4a4a-b50f-da409823218c)
 
@@ -179,11 +179,22 @@ In this milestone, you will build a solution to the problem based on a microserv
 | function  | similar to **Pedestrians depth** except it will estimate the depth of vehicles from the **Occluded_Image_View** image using a different focal length (different camera). Only vehicles that at most 20 meters close will be kept. Also, the **Occluded_Image_View** image will be excluded from the output. |
 | [depth_cam1](/docker/depth_cam1)  | 
 
-3. Longitudal and lateral distance for Pedestrians
+6. Longitudal and lateral distance for vehicles
 
   |   | Details |
 | ------- | ------- |
-| Input fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluding_Image_View**, **Pedestrians** , $${\large \color{red}\textbf{Pedestrians} \textunderscore \textbf{depth}}$$  |
-| Output fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluding_Image_View**, **Pedestrians**, $${\large \color{green}\textbf{Pedestrians} \textunderscore \textbf{longitudinal}}$$, $${\large \color{green}\textbf{Pedestrians} \textunderscore \textbf{lateral}}$$ |   
-| function  | runs a customized MLP to convert the depth into longitudinal and lateral distnaces. Refer to the following figure for more information about the longitudinal and lateral distances. The MLP takes the surrounding box and the depth of the pedestrian as input to generate the longitudinal and lateral distances. The MLP is already pre-trained. As the depth is no longer needed, **Pedestrians_depth** will be excluded from the output |   
+| Input fields  |**Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, **vehicles**, $${\large \color{red}\textbf{vehicles} \textunderscore \textbf{depth}}$$  |
+| Output fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, **vehicles**, $${\large \color{green}\textbf{vehicles} \textunderscore \textbf{longitudinal}}$$, $${\large \color{green}\textbf{vehicles} \textunderscore \textbf{lateral}}$$ |   
+| function  | similar to **Longitudal and lateral distance for Pedestrians** but using a differnt MLP because of the different Camera setting. |   
 | path to the code  | [long lateral_cam1](/docker/long_lateral_cam1)  | 
+
+7. AerialView generation
+
+  |   | Details |
+| ------- | ------- |
+| Input fields  |**Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, **vehicles**, **vehicles_longitudinal**, **vehicles_lateral**  |
+| Output fields  | **Timestamp**, $${\large \color{green}\textbf{aerialView}$$ |   
+| function  | finally by combing the ego vehicle location with the relative distance between the other road agents, the aerial view image will be generated |   
+| path to the code  | [AerialView](/docker/AerialView)  | 
+
+
