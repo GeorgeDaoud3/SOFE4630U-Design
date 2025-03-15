@@ -50,7 +50,7 @@ try:
     start_point=start_point.astype(int)
     end_point=end_point.astype(int)
     color = (255, 0, 0)
-    thickness = 1
+    thickness = -1   # to fill
     print("car 1, from "+str(start_point)+" to "+str(end_point))
     img = cv2.rectangle(img, start_point, end_point, color, thickness)
 
@@ -59,7 +59,7 @@ try:
     start_point=start_point.astype(int)
     end_point=end_point.astype(int)
     color = (255, 255, 0)
-    thickness = 1
+    thickness = -1   # to fill
     print("car 2, from "+str(start_point)+" to "+str(end_point))
     img = cv2.rectangle(img, start_point, end_point, color, thickness)
 
@@ -68,7 +68,7 @@ try:
     start_point=start_point.astype(int)
     end_point=end_point.astype(int)
     color = (255, 0, 255)
-    thickness = 1
+    thickness = -1   # to fill
     print("pedestrian, from "+str(start_point)+" to "+str(end_point))
     img = cv2.rectangle(img, start_point, end_point, color, thickness)
 except:
