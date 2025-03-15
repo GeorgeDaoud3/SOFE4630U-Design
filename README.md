@@ -179,7 +179,7 @@ In this milestone, you will build a solution to the problem based on a microserv
 | function  | similar to **Pedestrians depth**, it will estimate the depth of vehicles from the **Occluded_Image_View** image using a different focal length (different camera). Only vehicles that are at most 20 meters close will be kept. Also, the **Occluded_Image_View** image will be excluded from the output. |
 | [depth_cam1](/docker/depth_cam1)  | 
 
-6. 6.	Longitudinal  and lateral distance for vehicles
+6. Longitudinal  and lateral distance for vehicles
 
   |   | Details |
 | ------- | ------- |
