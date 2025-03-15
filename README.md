@@ -145,7 +145,7 @@ In this milestone you will build a solution of the problem based on a microservi
 
   |   | Details |
 | ------- | ------- |
-| Input fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, $${\large \color{red}\textbf{Occluded} \_ \textbf{Image\textunderscore} \textunderscore \textbf{View}}$$ , **Occluding_Image_View**, **Pedestrains**  |
+| Input fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, $${\large \color{red}\textbf{Occluded} \textunderscore \textbf{Image} \textunderscore \textbf{View}}$$ , **Occluding_Image_View**, **Pedestrains**  |
 | output fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluding_Image_View** , **Pedestrains**, $${\large \color{green}\textbf{Pedestrains} \textunderscore \textbf{depth}}$$ |   
 | function  | run **depth pro** on the **Occluded_Image_View** image and estimate the depth of the pedestrains and filter out any pedestrain that is more than ten meters far. Also as the **Occluded_Image_View** is no longer needed it will be excluded from the output. Note that the **depth pro** algorithm takes less than 3 seconds on a machine with a GPU but it may take till 5 minutes on a machine without GPU. |   
 | path to the code  | [depth_camA](/docker/depth_camA)  | 
