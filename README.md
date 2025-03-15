@@ -134,13 +134,8 @@ In this milestone you will build a solution of the problem based on a microservi
 
 1. Pedestrain detecting:
 
-| Command | Description |
-| --- | --- |
-| git status | List all new or modified files |
-| git diff | Show file differences that haven't been staged |
 
-
-| Command | Description |
+|   | Details |
 | ------- | ------- |
 | Input fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluded_Image_View**, **Occluding_Image_View**  |
 | output fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluded_Image_View**, **Occluding_Image_View** , **<code style="color : Gold">pedestrains</code>**  |   
