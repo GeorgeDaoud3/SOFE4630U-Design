@@ -150,7 +150,7 @@ In this milestone, you will build a solution to the problem based on a microserv
 | function  | runs **depth pro** on the **Occluded_Image_View** image, estimates the depth of the pedestrians, and filters out any pedestrian more than ten meters away. Also, as the **Occluded_Image_View** is no longer needed, it will be excluded from the output. Note that the **depth pro** algorithm takes less than 3 seconds on a machine with a GPU but may take up to 5 without a GPU. |   
 | path to the code  | [depth_cam1](/docker/depth_cam1)  | 
 
-3. Longitudal and lateral distance for Pedestrians
+3. 6.	Longitudinal and lateral distance for Pedestrians
 
   |   | Details |
 | ------- | ------- |
@@ -167,7 +167,7 @@ In this milestone, you will build a solution to the problem based on a microserv
 | ------- | ------- |
 | Input fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluding_Image_View**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**  |
 | Output fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluding_Image_View**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, $${\large \color{green}\textbf{vehicles}}$$ |   
-| function  | similar to  **Pedestrians detection** except it will search for vehicle in the **Occluded_Image_View** image  |   
+| function  | similar to  **Pedestrians detection**, except it will search for vehicles in the **Occluded_Image_View** image  |   
 | path to the code  | [Yolo car](/docker/Yolo_car)  | 
 
 5. vehicles depth
@@ -176,16 +176,16 @@ In this milestone, you will build a solution to the problem based on a microserv
 | ------- | ------- |
 | Input fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, $${\large \color{red} \textbf{Occluding} \textunderscore \textbf{Image} \textunderscore \textbf{View}}$$, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, **vehicles**  |
 | Output fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, **vehicles**, $${\large \color{green}\textbf{vehicles} \textunderscore \textbf{depth}}$$ |   
-| function  | similar to **Pedestrians depth** except it will estimate the depth of vehicles from the **Occluded_Image_View** image using a different focal length (different camera). Only vehicles that at most 20 meters close will be kept. Also, the **Occluded_Image_View** image will be excluded from the output. |
+| function  | similar to **Pedestrians depth**, it will estimate the depth of vehicles from the **Occluded_Image_View** image using a different focal length (different camera). Only vehicles that are at most 20 meters close will be kept. Also, the **Occluded_Image_View** image will be excluded from the output. |
 | [depth_cam1](/docker/depth_cam1)  | 
 
-6. Longitudal and lateral distance for vehicles
+6. 6.	Longitudinal  and lateral distance for vehicles
 
   |   | Details |
 | ------- | ------- |
 | Input fields  |**Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, **vehicles**, $${\large \color{red}\textbf{vehicles} \textunderscore \textbf{depth}}$$  |
 | Output fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, **vehicles**, $${\large \color{green}\textbf{vehicles} \textunderscore \textbf{longitudinal}}$$, $${\large \color{green}\textbf{vehicles} \textunderscore \textbf{lateral}}$$ |   
-| function  | similar to **Longitudal and lateral distance for Pedestrians** but using a differnt MLP because of the different Camera setting. |   
+| function  | similar to the longitudinal and lateral distance for Pedestrians but using a different MLP because of the different Camera settings.|   
 | path to the code  | [long lateral_cam1](/docker/long_lateral_cam1)  | 
 
 7. AerialView generation
