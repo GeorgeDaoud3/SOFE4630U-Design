@@ -1,5 +1,6 @@
 from ultralytics import YOLO
 import cv2
+import numpy as np
 
 # input
 Occluded_Image_View = cv2.imread("./A_001.png")
@@ -27,7 +28,9 @@ for box, cls, conf in zip(boxes, classes,confs):
 	    print("\t box : "+str(box[:4]))
 	    x1, y1, x2, y2 = map(int, box[:4])
 	    person_boxes.append(box[:4])
-        
+
+person_boxes=np.array(person_boxes).round().astype(np.int32)
+
 ################################################################################################################        
 
 #ouput
