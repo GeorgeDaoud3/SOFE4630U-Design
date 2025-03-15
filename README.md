@@ -20,8 +20,8 @@ The problem is to detect pedestrians occluded by other vehicles. As shown in the
 
 # The Dataset Description
 
-The dataset contains a file named **labels.csv**. It contains the following information
-* **Timestamp** : The scene time in nanoseconds.
+The dataset contains a file named **labels.csv**. It includes the following information:
+* **Timestamp**: The scene time in nanoseconds.
 * **Car1_Location_X** and	**Car1_Location_Y** : the locations of the center of the **grey vehicle** that occluding the pedestrian in real world coordinates.
 * **Car1_Length**,	**Car1_Width**,	and **Car1_Height** : the dimensions of the **grey vehicle** that occluding the pedestrian in meters.
 * **Car2_Location_X** and	**Car2_Location_Y** : the locations of the center of the **ego vehicle** in real world coordinates.
