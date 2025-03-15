@@ -133,7 +133,8 @@ The task is to implement this algorithm as a Dataflow Job. To do this, you may f
 In this milestone you will build a solution of the problem based on a microservices approach that communicates over a shared bus. To simplify the problem, we will assume that there is only one car close to the ego vehicle and there is only one pedestrain occluded by that car. All the code and docker files are given in the [docker](/docker) folder. Only the communication part is missing. Also for simplification we will create a straight pipeline of microservices however, a lot of the stages can be run in parallel. The microservices are:
 
 1. Pedestrain detecting:
-
+| Command | Description |
+| ------- | ------- |
 | Input fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluded_Image_View**, **Occluding_Image_View**  |
 | output fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluded_Image_View**, **Occluding_Image_View** , **<code style="color : Gold">pedestrains</code>**  |   
 | function  | run **Yolo v11** on the **Occluded_Image_View** image and produce a list of boxes that surrounding pedestrains  |   
