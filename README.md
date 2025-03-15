@@ -147,5 +147,17 @@ In this milestone, you will build a solution to the problem based on a microserv
 | ------- | ------- |
 | Input fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, $${\large \color{red}\textbf{Occluded} \textunderscore \textbf{Image} \textunderscore \textbf{View}}$$, **Occluding_Image_View**, **Pedestrians**  |
 | Output fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluding_Image_View**, **Pedestrians**, $${\large \color{green}\textbf{Pedestrians} \textunderscore \textbf{depth}}$$ |   
-| function  | run **depth pro** on the **Occluded_Image_View** image, estimate the depth of the pedestrians, and filter out any pedestrian more than ten meters away. Also, as the **Occluded_Image_View** is no longer needed, it will be excluded from the output. Note that the **depth pro** algorithm takes less than 3 seconds on a machine with a GPU but may take up to 5 without a GPU. |   
+| function  | runs **depth pro** on the **Occluded_Image_View** image, estimates the depth of the pedestrians, and filters out any pedestrian more than ten meters away. Also, as the **Occluded_Image_View** is no longer needed, it will be excluded from the output. Note that the **depth pro** algorithm takes less than 3 seconds on a machine with a GPU but may take up to 5 without a GPU. |   
 | path to the code  | [depth_cam1](/docker/depth_cam1)  | 
+
+2. longitudal and lateral distance for Pedestrians
+
+  |   | Details |
+| ------- | ------- |
+| Input fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, $${\large \color{red}\textbf{Occluded} \textunderscore \textbf{Image} \textunderscore \textbf{View}}$$, **Occluding_Image_View**, **Pedestrians** ,$${\large \color{red}\textbf{Pedestrians} \textunderscore \textbf{depth}}$  |
+| Output fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluding_Image_View**, **Pedestrians**, $${\large \color{green}\textbf{Pedestrians} \textunderscore \textbf{longitudinal}}$$ ,$${\large \color{green}\textbf{Pedestrians} \textunderscore \textbf{lateral}}$$ |   
+| function  | runs a customized MLP to convert the depth into longitudinal and lateral distnaces. Refer to the following figure for more information about the longitudinal and lateral distances. The MLP takes as input the surrounding box and the depth of the pedestrian to generate the longitudinal and lateral distnaces. The MLP is already pre-trained. As the depth is no longer needed, **Pedestrians_depth** will be excluded from the ouput |   
+| path to the code  | [depth_cam1](/docker/depth_cam1)  | 
+
+![image](https://github.com/user-attachments/assets/da0d7e8d-f636-4a4a-b50f-da409823218c)
+
