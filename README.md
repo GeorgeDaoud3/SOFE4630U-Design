@@ -136,17 +136,23 @@ In this milestone, you will build a solution to the problem based on a microserv
 
 |   | Details |
 | ------- | ------- |
-| Input fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluded_Image_View**, **Occluding_Image_View**  |
-| Output fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluded_Image_View**, **Occluding_Image_View**, $${\large \color{green}\textbf{Pedestrians}}$$ |   
+| Input fields  | **Timestamp**, **Car2_Location**, **Car1_dimensions**, **Car2_dimensions**, **Occluded_Image_View**, **Occluding_Image_View**  |
+| Output fields  | **Timestamp**, **Car2_Location**, **Car1_dimensions**, **Car2_dimensions**, **Occluded_Image_View**, **Occluding_Image_View**, $${\large \color{green}\textbf{Pedestrians}}$$ |   
 | function  | run **Yolo v11** on the **Occluded_Image_View** image and produce a list of boxes that surround pedestrians  |   
 | path to the code  | [Yolo pedestrian](/docker/Yolo_pedestrian)  | 
+
+where 
+**Car2_Location**=np.array(\[ **Car2_Location_X**,**Car2_Location_Y** \])
+**Car1_dimensions**=np.array(\[ **Car1_Length**,**Car1_Width** \])
+**Car2_dimensions**=np.array(\[ **Car2_Length**,**Car2_Width** \])
+
 
 2. Pedestrians depth
 
   |   | Details |
 | ------- | ------- |
-| Input fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, $${\large \color{red}\textbf{Occluded} \textunderscore \textbf{Image} \textunderscore \textbf{View}}$$, **Occluding_Image_View**, **Pedestrians**  |
-| Output fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluding_Image_View**, **Pedestrians**, $${\large \color{green}\textbf{Pedestrians} \textunderscore \textbf{depth}}$$ |   
+| Input fields  | **Timestamp**, **Car2_Location**, **Car1_dimensions**, **Car2_dimensions**, $${\large \color{red}\textbf{Occluded} \textunderscore \textbf{Image} \textunderscore \textbf{View}}$$, **Occluding_Image_View**, **Pedestrians**  |
+| Output fields  | **Timestamp**, **Car2_Location**, **Car1_dimensions**, **Car2_dimensions**, **Occluding_Image_View**, **Pedestrians**, $${\large \color{green}\textbf{Pedestrians} \textunderscore \textbf{depth}}$$ |   
 | function  | runs **depth pro** on the **Occluded_Image_View** image, estimates the depth of the pedestrians, and filters out any pedestrian more than ten meters away. Also, as the **Occluded_Image_View** is no longer needed, it will be excluded from the output. Note that the **depth pro** algorithm takes less than 3 seconds on a machine with a GPU but may take up to 5 without a GPU. |   
 | path to the code  | [depth_cam1](/docker/depth_cam1)  | 
 
@@ -154,8 +160,8 @@ In this milestone, you will build a solution to the problem based on a microserv
 
   |   | Details |
 | ------- | ------- |
-| Input fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluding_Image_View**, **Pedestrians** , $${\large \color{red}\textbf{Pedestrians} \textunderscore \textbf{depth}}$$  |
-| Output fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluding_Image_View**, **Pedestrians**, $${\large \color{green}\textbf{Pedestrians} \textunderscore \textbf{longitudinal}}$$, $${\large \color{green}\textbf{Pedestrians} \textunderscore \textbf{lateral}}$$ |   
+| Input fields  | **Timestamp**, **Car2_Location**, **Car1_dimensions**, **Car2_dimensions**, **Occluding_Image_View**, **Pedestrians** , $${\large \color{red}\textbf{Pedestrians} \textunderscore \textbf{depth}}$$  |
+| Output fields  | **Timestamp**, **Car2_Location**, **Car1_dimensions**, **Car2_dimensions**, **Occluding_Image_View**, **Pedestrians**, $${\large \color{green}\textbf{Pedestrians} \textunderscore \textbf{longitudinal}}$$, $${\large \color{green}\textbf{Pedestrians} \textunderscore \textbf{lateral}}$$ |   
 | function  | runs a customized MLP to convert the depth into longitudinal and lateral distnaces. Refer to the following figure for more information about the longitudinal and lateral distances. The MLP takes the surrounding box and the depth of the pedestrian as input to generate the longitudinal and lateral distances. The MLP is already pre-trained. As the depth is no longer needed, **Pedestrians_depth** will be excluded from the output |   
 | path to the code  | [long lateral_cam1](/docker/long_lateral_cam1)  | 
 
@@ -165,8 +171,8 @@ In this milestone, you will build a solution to the problem based on a microserv
 
 |   | Details |
 | ------- | ------- |
-| Input fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluding_Image_View**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**  |
-| Output fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Occluding_Image_View**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, $${\large \color{green}\textbf{vehicles}}$$ |   
+| Input fields  | **Timestamp**, **Car2_Location**, **Car1_dimensions**, **Car2_dimensions**, **Occluding_Image_View**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**  |
+| Output fields  | **Timestamp**, **Car2_Location**, **Car1_dimensions**, **Car2_dimensions**, **Occluding_Image_View**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, $${\large \color{green}\textbf{vehicles}}$$ |   
 | function  | similar to  **Pedestrians detection**, except it will search for vehicles in the **Occluded_Image_View** image  |   
 | path to the code  | [Yolo car](/docker/Yolo_car)  | 
 
@@ -174,8 +180,8 @@ In this milestone, you will build a solution to the problem based on a microserv
 
   |   | Details |
 | ------- | ------- |
-| Input fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, $${\large \color{red} \textbf{Occluding} \textunderscore \textbf{Image} \textunderscore \textbf{View}}$$, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, **vehicles**  |
-| Output fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, **vehicles**, $${\large \color{green}\textbf{vehicles} \textunderscore \textbf{depth}}$$ |   
+| Input fields  | **Timestamp**, **Car2_Location**, **Car1_dimensions**, **Car2_dimensions**, $${\large \color{red} \textbf{Occluding} \textunderscore \textbf{Image} \textunderscore \textbf{View}}$$, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, **vehicles**  |
+| Output fields  | **Timestamp**, **Car2_Location**, **Car1_dimensions**, **Car2_dimensions**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, **vehicles**, $${\large \color{green}\textbf{vehicles} \textunderscore \textbf{depth}}$$ |   
 | function  | similar to **Pedestrians depth**, it will estimate the depth of vehicles from the **Occluded_Image_View** image using a different focal length (different camera). Only vehicles that are at most 20 meters close will be kept. Also, the **Occluded_Image_View** image will be excluded from the output. |
 | path to the code | [depth_cam2](/docker/depth_cam2)  | 
 
@@ -183,8 +189,8 @@ In this milestone, you will build a solution to the problem based on a microserv
 
   |   | Details |
 | ------- | ------- |
-| Input fields  |**Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, **vehicles**, $${\large \color{red}\textbf{vehicles} \textunderscore \textbf{depth}}$$  |
-| Output fields  | **Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, **vehicles**, $${\large \color{green}\textbf{vehicles} \textunderscore \textbf{longitudinal}}$$, $${\large \color{green}\textbf{vehicles} \textunderscore \textbf{lateral}}$$ |   
+| Input fields  |**Timestamp**, **Car2_Location**, **Car1_dimensions**, **Car2_dimensions**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, **vehicles**, $${\large \color{red}\textbf{vehicles} \textunderscore \textbf{depth}}$$  |
+| Output fields  | **Timestamp**, **Car2_Location**, **Car1_dimensions**, **Car2_dimensions**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, **vehicles**, $${\large \color{green}\textbf{vehicles} \textunderscore \textbf{longitudinal}}$$, $${\large \color{green}\textbf{vehicles} \textunderscore \textbf{lateral}}$$ |   
 | function  | similar to the longitudinal and lateral distance for Pedestrians but using a different MLP because of the different Camera settings.|   
 | path to the code  | [long lateral_cam2](/docker/long_lateral_cam2)  | 
 
@@ -192,7 +198,7 @@ In this milestone, you will build a solution to the problem based on a microserv
 
   |   | Details |
 | ------- | ------- |
-| Input fields  |**Timestamp**, **Car2_Location_X**, **Car2_Location_Y**, **Car1_Length**,	**Car1_Width**, **Car1_Height**, **Car2_Length**, **Car2_Width**,	**Car2_Height**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, **vehicles**, **vehicles_longitudinal**, **vehicles_lateral**  |
+| Input fields  | **Timestamp**, **Car2_Location**, **Car1_dimensions**, **Car2_dimensions**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, **vehicles**, **vehicles_longitudinal**, **vehicles_lateral**  |
 | Output fields  | **Timestamp**, $${\large \color{green}\textbf{aerialView}}$$ |   
 | function  | finally, by combining the ego vehicle location with the relative distance between the other road agents, the aerial view image will be generated |   
 | path to the code  | [AerialView](/docker/AerialView)  | 
