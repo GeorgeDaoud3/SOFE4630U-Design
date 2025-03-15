@@ -35,15 +35,15 @@ The dataset contains a file named **labels.csv**. It includes the following info
 * **Occluded_Image_Lidar**: (**optional**) The Lidar row data captured by the Lidar mounted on the **other vehicle**.
 * **Occluding_Image_View**: images captured by the camera mounted on the **ego vehicle**. It shows the occluding view by the **other vehicle**.
 * **Occluding_Image_Lidar**: (**optional**) The Lidar row data captured by the Lidar mounted on the **ego vehicle**.
-* **Ground_Truth_View**: images that should be captured by the camera mounted on the **ego vehicle** if there is no occlusion by the **other vehicle**.
+* **Ground_Truth_View**: images that should be captured by Camera2 (mounted on the **ego vehicle**) if there is no occlusion by the **other vehicle**.
 
-All images mentioned in the **labels.csv** table can be found in the **Dataset_Occluded_Pedestrian** folder.
+All images mentioned in the **labels.csv** table are in the **Dataset_Occluded_Pedestrian** folder.
 
-All Lidar data mentioned in the **labels.csv** table can be found in the **Lidar** folder (**optional**). Note that the lidar data can be visulaized using this [online tool](https://imagetostl.com/view-ply-online). It can be processed with many open-source pretrained neural networks as [PointRCNN](https://github.com/sshaoshuai/PointRCNN).
+All Lidar data mentioned in the **labels.csv** table are in the **Lidar** folder (**optional**). Note that the lidar data can be visualized using this [online tool](https://imagetostl.com/view-ply-online). It can be processed with many open-source pre-trained neural networks such as [PointRCNN](https://github.com/sshaoshuai/PointRCNN).
 
-The images represented the aerial View of the scenes can be found the **AerialView** folder (**optional**).
+The images representing the aerial View of the scenes are in the **AerialView** folder (**optional**).
 
-
+An empty  aerial View of the scene is given by the **aerialView.png** file.
 
 ## Milestone 1
 
