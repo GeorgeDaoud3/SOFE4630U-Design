@@ -134,7 +134,7 @@ In this milestone you will build a solution of the problem based on a microservi
 
 1. Pedestrain detecting:
    
-<code style="color :red">text</code>
+<text style="color :red">text</text>
 
 |   | Details |
 | ------- | ------- |
