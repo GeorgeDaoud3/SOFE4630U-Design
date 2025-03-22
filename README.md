@@ -191,7 +191,7 @@ where
 | ------- | ------- |
 | Input fields  |**Timestamp**, **Car2_Location**, **Car1_dimensions**, **Car2_dimensions**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, **vehicles**, $${\large \color{red}\textbf{vehicles} \textunderscore \textbf{depth}}$$  |
 | Output fields  | **Timestamp**, **Car2_Location**, **Car1_dimensions**, **Car2_dimensions**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, **vehicles**, $${\large \color{green}\textbf{vehicles} \textunderscore \textbf{longitudinal}}$$, $${\large \color{green}\textbf{vehicles} \textunderscore \textbf{lateral}}$$ |   
-| function  | similar to the longitudinal and lateral distance for Pedestrians but using a different MLP because of the different Camera settings.|   
+| function  | similar to the longitudinal and lateral distance for vehicles but using a different MLP because of the different Camera settings.|   
 | path to the code  | [long lateral_cam2](/docker/long_lateral_cam2)  | 
 
 7. AerialView generation
