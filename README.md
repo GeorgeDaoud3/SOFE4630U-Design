@@ -173,7 +173,7 @@ where
 | ------- | ------- |
 | Input fields  | **Timestamp**, **Car2_Location**, **Car1_dimensions**, **Car2_dimensions**, **Occluding_Image_View**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**  |
 | Output fields  | **Timestamp**, **Car2_Location**, **Car1_dimensions**, **Car2_dimensions**, **Occluding_Image_View**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, $${\large \color{green}\textbf{vehicles}}$$ |   
-| function  | similar to  **Pedestrians detection**, except it will search for vehicles in the **Occluded_Image_View** image  |   
+| function  | similar to  **Pedestrians detection**, except it will search for vehicles in the **Occluding_Image_View** image  |   
 | path to the code  | [Yolo car](/docker/Yolo_car)  | 
 
 5. vehicles depth
@@ -182,7 +182,7 @@ where
 | ------- | ------- |
 | Input fields  | **Timestamp**, **Car2_Location**, **Car1_dimensions**, **Car2_dimensions**, $${\large \color{red} \textbf{Occluding} \textunderscore \textbf{Image} \textunderscore \textbf{View}}$$, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, **vehicles**  |
 | Output fields  | **Timestamp**, **Car2_Location**, **Car1_dimensions**, **Car2_dimensions**, **Pedestrians**, **Pedestrians_longitudinal**, **Pedestrians_lateral**, **vehicles**, $${\large \color{green}\textbf{vehicles} \textunderscore \textbf{depth}}$$ |   
-| function  | similar to **Pedestrians depth**, it will estimate the depth of vehicles from the **Occluded_Image_View** image using a different focal length (different camera). Only vehicles that are at most 20 meters close will be kept. Also, the **Occluded_Image_View** image will be excluded from the output. |
+| function  | similar to **Pedestrians depth**, it will estimate the depth of vehicles from the **Occluding_Image_View** image using a different focal length (different camera). Only vehicles that are at most 20 meters close will be kept. Also, the **Occluding_Image_View** image will be excluded from the output. |
 | path to the code | [depth_cam2](/docker/depth_cam2)  | 
 
 6. Longitudinal  and lateral distance for vehicles
